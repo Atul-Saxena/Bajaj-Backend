@@ -7,12 +7,8 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(cors());
+app.use(cors());
 
-var corsOptions = {
-  origin: 'https://bajajfinserv-project-backend-qlkuwirmm.vercel.app',
-  optionsSuccessStatus: 200
-}
 
 const PORT = process.env.PORT || 3000;
 
@@ -25,14 +21,14 @@ const isPrime = (num) => {
 };
 
 
-app.get('/bfhl',cors(corsOptions), (req, res) => {
+app.get('/bfhl',cors(), (req, res) => {
   res.status(200).json({
     operation_code: 1
   });
 });
 
 
-app.post('/bfhl',cors(corsOptions), (req, res) => {
+app.post('/bfhl',cors(), (req, res) => {
   const { data, file_b64 } = req.body;
 
   const userId = "john_doe_17091999"; // Hardcoded as per example
