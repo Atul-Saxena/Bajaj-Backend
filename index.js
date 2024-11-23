@@ -5,9 +5,9 @@ require('dotenv').config();
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 
 
 const PORT = process.env.PORT || 3000;
@@ -21,14 +21,14 @@ const isPrime = (num) => {
 };
 
 
-app.get('/bfhl',cors(), (req, res) => {
+app.get('/bfhl', (req, res) => {
   res.status(200).json({
     operation_code: 1
   });
 });
 
 
-app.post('/bfhl',cors(), (req, res) => {
+app.post('/bfhl', (req, res) => {
   const { data, file_b64 } = req.body;
 
   const userId = "john_doe_17091999"; // Hardcoded as per example
