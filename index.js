@@ -7,7 +7,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+// app.use(cors());
 
 var corsOptions = {
   origin: 'https://bajajfinserv-project-backend-qlkuwirmm.vercel.app',
